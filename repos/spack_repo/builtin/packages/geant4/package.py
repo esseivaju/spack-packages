@@ -235,7 +235,8 @@ class Geant4(CMakePackage):
     patch("twisted-tubes.patch", when="@11.2.0:11.2.2")
     # Fix duplicate ion creation (PART122 "already registered") with libc++ >= 22:
     # G4IonTable assumes std::multimap::find returns the first of several equal keys
-    patch("g4iontable-multimap-lower-bound.patch", when="@11.2:11.4")
+    # (fixed upstream in 11.4.3)
+    patch("g4iontable-multimap-lower-bound.patch", when="@11.2:11.4.2")
 
     # NVHPC: "thread-local declaration follows non-thread-local declaration"
     conflicts("%nvhpc", when="+threads")
